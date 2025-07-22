@@ -1,0 +1,15 @@
+{
+  "students": [
+    {
+      "id": "59ec",
+      "name": "аіауіаі",
+      "age": 434,
+      "course": "аіуаіа32ц",
+      "skills": [
+        "аіуаі"
+      ],
+      "email": "omelanenkko@gmail.com",
+      "isEnrolled": true
+    }
+  ]
+}
