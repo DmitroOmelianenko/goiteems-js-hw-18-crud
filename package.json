@@ -4,7 +4,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "parcel src/index.html",
-    "build": "parcel build src/index.html",
+    "build": "parcel build src/index.html --public-url ./",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "server": "npx json-server students.json"
@@ -18,7 +18,7 @@
   "bugs": {
     "url": "https://github.com/DmitroOmelianenko/goiteems-js-hw-18-crud/issues"
   },
-  "homepage": "https://github.com/DmitroOmelianenko/goiteems-js-hw-18-crud#readme",
+  "homepage": "https://dmitroomelianenko.github.io/goiteems-js-hw-18-crud/",
   "description": "",
   "dependencies": {
     "gh-pages": "^6.3.0",
