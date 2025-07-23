@@ -1,7 +1,7 @@
-import { getStudentsAPI } from "../api/getstudents.js";
-import { addStudentAPI } from "../api/addstudent.js";
-import { updateStudentAPI } from "../api/updatestudent.js";
-import { deleteStudentAPI } from "../api/deletestudent.js";
+import { getStudentsAPI } from "./api/getstudents.js";
+import { addStudentAPI } from "./api/addstudent.js";
+import { updateStudentAPI } from "./api/updatestudent.js";
+import { deleteStudentAPI } from "./api/deletestudent.js";
 
 const tableBody = document.querySelector("#students-table tbody");
 const form = document.getElementById("add-student-form");
@@ -13,7 +13,6 @@ function showStudents(students) {
   tableBody.innerHTML = "";
   students.forEach(student => {
     const tr = document.createElement("tr");
-
     tr.innerHTML = `
       <td>${student.id}</td>
       <td>${student.name}</td>
@@ -23,11 +22,10 @@ function showStudents(students) {
       <td>${student.email}</td>
       <td>${student.isEnrolled ? "Так" : "Ні"}</td>
       <td>
-        <button class="edit" data-id="${student.id}">Оновити</button>
-        <button class="delete" data-id="${student.id}">Видалити</button>
+        <button class="edit" data-id="${student.id}">✏️</button>
+        <button class="delete" data-id="${student.id}">🗑️</button>
       </td>
     `;
-
     tableBody.appendChild(tr);
   });
 }
@@ -36,16 +34,16 @@ function loadStudents() {
   getStudentsAPI().then(showStudents);
 }
 
-form.addEventListener("submit", e => {
+form.addEventListener("submit", (e) => {
   e.preventDefault();
 
   const student = {
-    name: form.name.value,
-    age: +form.age.value,
-    course: form.course.value,
-    skills: form.skills.value.split(",").map(s => s.trim()),
-    email: form.email.value,
-    isEnrolled: form.isEnrolled.checked
+    name: form.elements.name.value,
+    age: Number(form.elements.age.value),
+    course: form.elements.course.value,
+    skills: form.elements.skills.value.split(",").map(s => s.trim()),
+    email: form.elements.email.value,
+    isEnrolled: form.elements.isEnrolled?.checked || false
   };
 
   if (editId) {
@@ -62,22 +60,19 @@ form.addEventListener("submit", e => {
   }
 });
 
-tableBody.addEventListener("click", e => {
+tableBody.addEventListener("click", (e) => {
   const id = e.target.dataset.id;
-  if (!id) return;
 
   if (e.target.classList.contains("edit")) {
     getStudentsAPI().then(data => {
       const student = data.find(s => s.id == id);
-      if (!student) return;
 
-      form.name.value = student.name;
-      form.age.value = student.age;
-      form.course.value = student.course;
-      form.skills.value = student.skills.join(", ");
-      form.email.value = student.email;
-      form.isEnrolled.checked = student.isEnrolled;
-
+      form.elements.name.value = student.name;
+      form.elements.age.value = student.age;
+      form.elements.course.value = student.course;
+      form.elements.skills.value = student.skills.join(", ");
+      form.elements.email.value = student.email;
+      form.elements.isEnrolled.checked = student.isEnrolled;
       editId = student.id;
     });
   }

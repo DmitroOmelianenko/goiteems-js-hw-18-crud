@@ -1,15 +1,17 @@
 {
   "students": [
     {
-      "id": "59ec",
-      "name": "аіауіаі",
-      "age": 434,
-      "course": "аіуаіа32ц",
+      "id": "9bbd",
+      "name": "НІка",
+      "age": 18,
+      "course": "back-end2",
       "skills": [
-        "аіуаі"
+        "back-end",
+        "c++",
+        "python"
       ],
-      "email": "omelanenkko@gmail.com",
-      "isEnrolled": true
+      "email": "example@gmail.com",
+      "isEnrolled": false
     }
   ]
 }
