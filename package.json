@@ -18,14 +18,14 @@
   "bugs": {
     "url": "https://github.com/DmitroOmelianenko/goiteems-js-hw-18-crud/issues"
   },
-  "homepage": "https://dmitroomelianenko.github.io/goiteems-js-hw-18-crud/",
+  "homepage": "https://DmitroOmelianenko.github.io/goiteems-js-hw-18-crud",
   "description": "",
   "dependencies": {
-    "gh-pages": "^6.3.0",
     "json-server": "^1.0.0-beta.3",
     "parcel": "^2.15.4"
   },
   "devDependencies": {
+    "gh-pages": "^6.3.0",
     "parcel-reporter-clean-dist": "^1.0.4",
     "posthtml-include": "^2.0.1"
   }
